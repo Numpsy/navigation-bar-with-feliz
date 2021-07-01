@@ -7,8 +7,9 @@
         "test": "mocha ./tests-js"
     },
     "dependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0",
+        "@inocan/rough-viz": "^1.2.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
         "remotedev": "^0.2.9"
     },
     "devDependencies": {

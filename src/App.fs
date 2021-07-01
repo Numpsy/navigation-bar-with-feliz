@@ -202,6 +202,29 @@ let MainLayout (currentUrl: string list) (xs: ReactElement list) =
         ]
     ]
 
+open Feliz.RoughViz
+
+let fruitSales = [
+    ("Oranges", 5.0)
+    ("Apples", 8.2)
+    ("Strawberry", 10.0)
+    ("Peach", 2.0)
+    ("Pineapple", 17.0)
+    ("Bananas", 10.0)
+    ("Mango", 6.4)
+]
+
+let roughBarChart = React.functionComponent(fun () ->
+    RoughViz.barChart [
+        barChart.title "Fruit Sales"
+        barChart.data fruitSales
+        barChart.roughness 3
+        barChart.color color.skyBlue
+        barChart.stroke color.darkCyan
+        barChart.axisFontSize 18
+        barChart.fillStyle.crossHatch
+        barChart.highlight color.lightGreen
+    ])
 
 [<ReactComponent>]
 let Router() =
@@ -224,7 +247,7 @@ let Router() =
                 ]
             ]
 
-        | [ "contacts" ] -> Html.h1 "Contacts"
+        | [ "contacts" ] -> roughBarChart()
         | [ "settings" ] -> Html.h1 "Settings"
         | _              -> Html.none
 
